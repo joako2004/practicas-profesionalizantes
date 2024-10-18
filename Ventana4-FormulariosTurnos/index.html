@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Formulario</title>
+</head>
+<body>
+    <div class="titulo">
+        <h1>Complete sus datos</h1>
+    </div>
+    <div class="formularios">
+        <form id="miFormulario" class="formulario">
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+            <input type="text" name="apellido" id="apellido" placeholder="Apellido">
+            <input type="text" name="" id="" placeholder="DNI">
+            <input type="text" name="telefono" id="telefono" placeholder="Número de Teléfono">
+            <input type="email" name="email" id="email" placeholder="Correo Electrónico" >
+        </form>
+    </div>
+    <div class="enlaces">
+        <button type="button" onclick="limpiarFormulario()">Enviar</button>
+        <a href="/pagina/ventana1/index1.html">Menu Principal</a>
+    </div>
+    <script>
+        function limpiarFormulario() {
+            document.getElementById("miFormulario").reset();
+        }
+    </script>
+</body>
+</html>
