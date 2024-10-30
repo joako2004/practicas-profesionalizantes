@@ -28,7 +28,11 @@ input {
 
 .enlaces {
     margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
 }
+
 
 a {
     color: #fff;
@@ -48,3 +52,4 @@ button {
     font-size: 16px;
     border: #019FFB;
 }
+
