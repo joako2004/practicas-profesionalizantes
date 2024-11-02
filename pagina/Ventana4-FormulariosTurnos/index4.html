@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Formulario</title>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("wBjiGPJrzGpv7AdK7"); // Reemplaza con tu User ID de EmailJS
+        })();
+    </script>
 </head>
 <body>
     <div class="titulo">
@@ -14,19 +20,35 @@
         <form id="miFormulario" class="formulario">
             <input type="text" name="nombre" id="nombre" placeholder="Nombre">
             <input type="text" name="apellido" id="apellido" placeholder="Apellido">
-            <input type="text" name="" id="" placeholder="DNI">
+            <input type="text" name="dni" id="dni" placeholder="DNI">
             <input type="text" name="telefono" id="telefono" placeholder="Número de Teléfono">
-            <input type="email" name="email" id="email" placeholder="Correo Electrónico" >
+            <input type="email" name="email" id="email" placeholder="Correo Electrónico">
+            <button type="button" onclick="enviarFormulario()">Enviar</button>
         </form>
     </div>
     <div class="enlaces">
-        <button type="button" onclick= "limpiarFormulario()" >Enviar</button>
-        <a id = "menu-principal" href="../ventana1/index1.html">Menu Principal</a>
+        <a id="menu-principal" href="../ventana1/index1.html">Menu Principal</a>
         <a href="../ventana3Turnos/index3.html">Volver</a>
     </div>
     <script>
         function limpiarFormulario() {
             document.getElementById("miFormulario").reset();
+        }
+
+        function enviarFormulario() {
+        const serviceID = "service_vfxe3ed";
+        const templateID = "template_uw193hm";
+
+        const email = document.getElementById("email").value;
+        console.log("Enviando correo a:", email); // Verificar el email ingresado
+
+        emailjs.sendForm(serviceID, templateID, "#miFormulario")
+            .then(() => {
+                alert("Formulario enviado correctamente");
+                limpiarFormulario();
+            }, (error) => {
+                alert("Error al enviar el formulario", error);
+            });
         }
     </script>
 </body>
